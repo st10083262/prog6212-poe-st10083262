@@ -1,0 +1,91 @@
+﻿@model Study_Tracker.Models.Module
+
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+<div>
+    <h1>Details for @Html.DisplayFor(model => model.moduleCode)</h1>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Module Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.moduleName)
+        </dd>
+        <dt class = "col-sm-2">
+            Module Credits
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.credits)
+        </dd>
+        <dt class = "col-sm-2">
+            Class Hours Per Week
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.classHoursPerWeek)
+        </dd>
+        <dt class = "col-sm-2">
+            Hours Studied This Week
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HoursStudiedThisWeek)
+        </dd>
+        <dt class="col-sm-2">
+           Recommended Hours Of Studying.
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecommendedStudyHours)
+        </dd>
+        <dt class = "col-sm-2">
+            Weeks in Semester
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.semesterNumOfWeeks)
+        </dd>
+        <dt class = "col-sm-2">
+            Semester start date
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.semesterStartDate)
+        </dd>
+    </dl>
+</div>
+<br />
+<br />
+<div id="chartContainer" style="height: 350px; width: 80%;"></div>
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Number of hours spent studying for @Model.moduleCode per week."
+            },
+            axisY: {
+                title: "Hours Studied"
+            },
+            data: [
+                {
+                    type: "column",
+                    xValueType: "dateTime",
+                    showInLegend: true, 
+		            legendMarkerColor: "grey",
+		            legendText: "Hours",
+                    dataPoints: @Html.Raw(ViewBag.DataPoints)
+                    }
+            ]
+        });
+        chart.render();
+    };
+</script>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.moduleCode">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

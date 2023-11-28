@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Study_Tracker.Models.Module>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>List of Your Modules</h1>
+
+<p>
+    <a asp-action="Create">Create A New Module</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Module Name
+            </th>
+            <th>
+                Module Code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.moduleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.moduleCode)
+                </td>
+                <td>
+                </td>
+                <td>
+                    <a asp-action="AddStudyTime" asp-route-id="@item.moduleCode">Add Time Studied</a> |
+                    <a asp-action="Edit" asp-route-id="@item.moduleCode">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.moduleCode">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.moduleCode">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

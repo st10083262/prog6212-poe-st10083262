@@ -1,0 +1,53 @@
+﻿@model Study_Tracker.Models.Module
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.moduleCode</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="moduleCode" />
+            <div class="form-group">
+                <label asp-for="moduleName" class="control-label">Module Name</label>
+                <input asp-for="moduleName" class="form-control" />
+                <span asp-validation-for="moduleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="credits" class="control-label">Module Credits</label>
+                <input asp-for="credits" class="form-control" />
+                <span asp-validation-for="credits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="classHoursPerWeek" class="control-label">Class Hours Per Week</label>
+                <input asp-for="classHoursPerWeek" class="form-control" />
+                <span asp-validation-for="classHoursPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="semesterNumOfWeeks" class="control-label">Number Of Weeks In the Semester</label>
+                <input asp-for="semesterNumOfWeeks" class="form-control" />
+                <span asp-validation-for="semesterNumOfWeeks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="semesterStartDate" class="control-label">Semester Start Date</label>
+                <input asp-for="semesterStartDate" class="form-control" />
+                <span asp-validation-for="semesterStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

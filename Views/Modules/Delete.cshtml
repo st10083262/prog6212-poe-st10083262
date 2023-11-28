@@ -1,0 +1,17 @@
+﻿@model Study_Tracker.Models.Module
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete @Model.moduleCode</h1>
+
+<h3>Are you sure you want to delete @Model.moduleCode? This action cannot be undone.</h3>
+<div>
+    <hr />
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="moduleCode" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

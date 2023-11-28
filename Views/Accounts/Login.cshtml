@@ -1,0 +1,32 @@
+﻿@model Study_Tracker.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <form asp-controller="Accounts" asp-action="Login" method="post">
+        <h1>Login</h1>
+        <input type="email" placeholder="Email Address" asp-for="username"/>
+        <input type="password" placeholder="Password" asp-for="password"/>
+        <button type="submit">Login</button>
+        <br />
+        <p>
+            Don't have an account?
+            <a href="Accounts/Register">Register</a>
+        </p>
+        @if(ViewData["ValidateMessage"] != null)
+        {
+            <br />
+            <br />
+            <label>@ViewData["ValidateMessage"]</label>
+        }
+    </form>
+</body>
+</html>
