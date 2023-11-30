@@ -12,11 +12,11 @@ namespace Study_Tracker.Models
         [MaxLength(50)]
         public string moduleName { get; set; } = null!; 
         public int credits { get; set; } 
-        public double classHoursPerWeek { get; set; } 
+        public double WeeklyClassHours { get; set; } 
         [NotMapped]
-        private double? hoursStudiedThisWeek; 
-        public int semesterNumOfWeeks { get; set; } 
-        public DateTime semesterStartDate { get; set; } 
+        private double? WeeklyHoursStudied; 
+        public int SemesterWeeks { get; set; } 
+        public DateTime SemesterStart { get; set; } 
 
         public virtual User user { get; set; } = null!;
         public virtual ICollection<StudyDate>? studyDates { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Study_Tracker.Models
         {
             get
             {
-                return ((credits * 10) / semesterNumOfWeeks) - classHoursPerWeek; 
+                return ((credits * 10) / 2) - 13; 
             }
 
             set

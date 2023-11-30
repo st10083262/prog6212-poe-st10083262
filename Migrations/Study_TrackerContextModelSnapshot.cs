@@ -28,7 +28,13 @@ namespace StudyTracker.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<double>("classHoursPerWeek")
+                    b.Property<DateTime>("SemesterStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SemesterWeeks")
+                        .HasColumnType("int");
+
+                    b.Property<double>("WeeklyClassHours")
                         .HasColumnType("float");
 
                     b.Property<int>("credits")
@@ -38,12 +44,6 @@ namespace StudyTracker.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("semesterNumOfWeeks")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("semesterStartDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("username")
                         .IsRequired()
@@ -58,22 +58,22 @@ namespace StudyTracker.Migrations
 
             modelBuilder.Entity("Study_Tracker.Models.StudyDate", b =>
                 {
-                    b.Property<int>("studyDateID")
+                    b.Property<int>("SessionID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("studyDateID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SessionID"));
+
+                    b.Property<double>("StudiedHours")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("hoursStudied")
-                        .HasColumnType("float");
-
                     b.Property<string>("moduleCode")
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("studyDateID");
+                    b.HasKey("SessionID");
 
                     b.HasIndex("moduleCode");
 
