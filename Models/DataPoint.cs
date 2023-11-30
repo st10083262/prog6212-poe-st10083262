@@ -14,11 +14,11 @@ namespace Study_Tracker.Models
 			this.Y = y;
 		}
 
-		//Explicitly setting the name to be used while serializing to JSON.
+		// JSON.
 		[DataMember(Name = "x")]
 		public Nullable<double> X = null;
 
-		//Explicitly setting the name to be used while serializing to JSON.
+		// JSON.
 		[DataMember(Name = "y")]
 		public Nullable<double> Y = null;
 	}

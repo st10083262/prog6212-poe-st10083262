@@ -5,9 +5,9 @@ namespace Study_Tracker.Models
     public class StudyDate
     {
         [Key]
-        public int studyDateID { get; set; }
-        public DateTime date { get; set; } // Set the date of studying to today.
-        public double hoursStudied { get; set; } // How many hours were studied today.
+        public int SessionID { get; set; }
+        public DateTime date { get; set; } 
+        public double StudiedHours { get; set; } // How many hours were dedicated to studying today?
 
         public virtual Module module { get; set; } = null!;
     }

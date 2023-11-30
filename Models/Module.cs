@@ -8,15 +8,15 @@ namespace Study_Tracker.Models
 
         [Key]
         [MaxLength(50)]
-        public string moduleCode { get; set; } = null!; // Module code.
+        public string moduleCode { get; set; } = null!; 
         [MaxLength(50)]
-        public string moduleName { get; set; } = null!; // Module name.
-        public int credits { get; set; } // Module credits.
-        public double classHoursPerWeek { get; set; } // The number of class hours there are for a week.
+        public string moduleName { get; set; } = null!; 
+        public int credits { get; set; } 
+        public double classHoursPerWeek { get; set; } 
         [NotMapped]
-        private double? hoursStudiedThisWeek; // How many hours studied this week.
-        public int semesterNumOfWeeks { get; set; } // How many weeks in a semester
-        public DateTime semesterStartDate { get; set; } // When does the semester starts
+        private double? hoursStudiedThisWeek; 
+        public int semesterNumOfWeeks { get; set; } 
+        public DateTime semesterStartDate { get; set; } 
 
         public virtual User user { get; set; } = null!;
         public virtual ICollection<StudyDate>? studyDates { get; set; } = null!;
@@ -33,7 +33,7 @@ namespace Study_Tracker.Models
                     {
                         if (DatesAreInTheSameWeek(entry.date, DateTime.Now)) // If the date was this week.
                         {
-                            hours += entry.hoursStudied; // Add to the sum of all hours studied for this week.
+                            hours += entry.StudiedHours; 
                         }
                     }
                     return hours;
@@ -62,16 +62,16 @@ namespace Study_Tracker.Models
         }
 
         [NotMapped]
-        public double RecommendedStudyHours
+        public double TargetStudyHours
         {
             get
             {
-                return ((credits * 10) / semesterNumOfWeeks) - classHoursPerWeek; // Provided formula.
+                return ((credits * 10) / semesterNumOfWeeks) - classHoursPerWeek; 
             }
 
             set
             {
-                RecommendedStudyHours = value;
+                TargetStudyHours = value;
             }
         }
     }

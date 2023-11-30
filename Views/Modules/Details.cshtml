@@ -12,43 +12,43 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            Module Name
+            The Module Name
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.moduleName)
         </dd>
         <dt class = "col-sm-2">
-            Module Credits
+            The amount of Module Credits
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.credits)
         </dd>
         <dt class = "col-sm-2">
-            Class Hours Per Week
+            The Amount of Class Hours Per Week
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.classHoursPerWeek)
         </dd>
         <dt class = "col-sm-2">
-            Hours Studied This Week
+            The Number of Hours Studied This Week
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.HoursStudiedThisWeek)
         </dd>
         <dt class="col-sm-2">
-           Recommended Hours Of Studying.
+           The Target Hours Of Studying.
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RecommendedStudyHours)
+            @Html.DisplayFor(model => model.TargetStudyHours)
         </dd>
         <dt class = "col-sm-2">
-            Weeks in Semester
+            The Number of Weeks in the Semester
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.semesterNumOfWeeks)
         </dd>
         <dt class = "col-sm-2">
-            Semester start date
+            Date when Semester will start
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.semesterStartDate)
@@ -66,17 +66,17 @@
             animationEnabled: true,
             theme: "light2",
             title: {
-                text: "Number of hours spent studying for @Model.moduleCode per week."
+                text: "Amount of hours spent studying for @Model.moduleCode per week."
             },
             axisY: {
-                title: "Hours Studied"
+                title: "Amount Of Hours Studied"
             },
             data: [
                 {
                     type: "column",
                     xValueType: "dateTime",
                     showInLegend: true, 
-		            legendMarkerColor: "grey",
+		            legendMarkerColor: "blue",
 		            legendText: "Hours",
                     dataPoints: @Html.Raw(ViewBag.DataPoints)
                     }

@@ -59,7 +59,7 @@ namespace Study_Tracker.Controllers
 
                 foreach (var d in dates)
                 {
-                    DataPoint dp = new DataPoint(d.date, d.hoursStudied);
+                    DataPoint dp = new DataPoint(d.date, d.StudiedHours);
                     points.Add(dp);
                 }
 
@@ -213,7 +213,7 @@ namespace Study_Tracker.Controllers
             }
 
             ViewData["ModuleHoursThisWeek"] = module.HoursStudiedThisWeek;
-            ViewData["ModuleRecommendedHours"] = module.RecommendedStudyHours;
+            ViewData["ModuleRecommendedHours"] = module.TargetStudyHours;
 
             return View();
         }
